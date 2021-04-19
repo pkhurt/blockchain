@@ -21,7 +21,7 @@ class Blockchain(object):
         # Genesis Block (very fist block)
         self.new_block(previous_hash=1, proof=100)
 
-    def new_block(self, proof, previous_hash=None):
+    def new_block(self, proof: int, previous_hash: int = None):
         """
         Creates a new block and adds it to the chain
         """
@@ -54,13 +54,42 @@ class Blockchain(object):
         })
         return self.last_block["index"] + 1
 
+    def proof_of_work(self, last_proof):
+        """
+
+        :param last_proof:
+        :return:
+        """
+        proof = 0
+        while self.valid_proof(last_proof, proof) is False:
+            proof += 1
+
+        return proof
+
     @staticmethod
-    def hash(block):
+    def valid_proof(last_proof, proof):
         """
-        Hashes a block
-        :param block:
+        Validates the proof: Does hash(last_proof, proof) contain 4 leading zeros?
+        :param last_proof:
+        :param proof:
+        :return:
         """
-        pass
+        guess = f"{last_proof}{proof}".encode()
+        guess_hash = hashlib.sha256(guess).hexdigest()
+        valid_proof = guess_hash[:4] == "0000"
+
+        return valid_proof
+
+    @staticmethod
+    def hash(block: dict) -> str:
+        """
+        Creates a SHA-256 hash of a block with source info of whole block string
+        :param block: Block
+        :return sha-256 str
+        """
+        block_string = json.dumps(block, sort_keys=True).encode()
+        hash = hashlib.sha256(block_string).hexdigest()
+        return hash
 
     @property
     def last_block(self):
