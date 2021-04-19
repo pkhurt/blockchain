@@ -2,6 +2,7 @@ import hashlib
 import json
 from time import time
 
+
 class Blockchain(object):
     """
     Class Blockchain
@@ -98,3 +99,7 @@ class Blockchain(object):
         :return:
         """
         return self.chain[-1]
+
+
+
+
