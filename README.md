@@ -44,3 +44,10 @@ Call this address in your browser to mine a new block of the blockchain:
 Call this address in your browser to see all the blocks that have been forged
 in your blockchain.
 `127.0.0.1:5000/chain`
+
+# Understanding a blockchain
+A blockchain is a sequential chain of records called blocks.
+The blocks can contain transactions, files, or any other data.
+These blocks are chained together using hashes.
+
+
