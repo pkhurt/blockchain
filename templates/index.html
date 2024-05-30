@@ -9,5 +9,8 @@
 <body>
     <h1>Welcome to the blockchain flask app!</h1>
     <p>Here you find the links you need:</p>
+    <a href="{{ url_for('mine') }}">Forge a block of the blockchain</a><br>
+    <a href="{{ url_for('new_transaction') }}">Make a transaction</a><br>
+    <a href="{{ url_for('full_chain') }}">Checkout your blockchain</a><br>
 </body>
 </html>
