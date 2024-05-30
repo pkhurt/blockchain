@@ -62,6 +62,9 @@ class TestBlockchainMethods(unittest.TestCase):
         self.assertIsInstance(proof_assumption, int)
         self.assertEqual(proof_assumption, 35293)
 
+    def test_dummy(self):
+        self.assertTrue(False)
+
 
 if __name__ == '__main__':
     unittest.main()
