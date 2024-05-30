@@ -1,8 +1,5 @@
 import uuid
-import json
-from textwrap import dedent
-import hashlib
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 from blockchain import Blockchain
 
 
@@ -15,8 +12,11 @@ node_identifier = str(uuid.uuid4()).replace("-", "")
 # instantiate Blockchain
 blockchain = Blockchain()
 
+# Add routing addresses
+@app.route("/")
+def home():
+    return render_template("index.html")
 
-# ADD routing addresses
 @app.route("/mine", methods=["GET"])
 def mine():
     # Run proof of work algorithm
