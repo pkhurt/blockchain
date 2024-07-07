@@ -17,6 +17,10 @@ blockchain = Blockchain()
 def home():
     return render_template("index.html")
 
+@app.route("/transaction_form")
+def transaction_form():
+    return render_template("transaction.html")
+
 @app.route("/mine", methods=["GET"])
 def mine():
     # Run proof of work algorithm
@@ -45,20 +49,23 @@ def mine():
     return jsonify(response), 200
 
 
-@app.route("/transactions/new", methods=["POST"])
-def new_transaction():
-    values = request.get_json()
+@app.route("/submit-form", methods=["POST", "GET"])
+def new_transaction_post():
+    sender = request.form["sender"]
+    receiver = request.form["receiver"]
+    amount = request.form["amount"]
+    # values = request.get_json()
 
     # check required fields that are POST to this function
-    required = ["sender", "recipient", "amount"]
-    if not all(elem in values for elem in required):
-        return "Missing values", 400
+    # required = ["sender", "recipient", "amount"]
+    # if not all(elem in values for elem in required):
+    #     return "Missing values", 400
 
     # New transaction is created
     index = blockchain.new_transaction(
-        values["sender"],
-        values["recipient"],
-        values["amount"])
+        request.form["sender"],
+        request.form["recipient"],
+        request.form["amount"])
 
     response = {"message": f"Transaction will be added to Block {index}"}
     return jsonify(response), 201
