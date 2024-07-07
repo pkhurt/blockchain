@@ -1,3 +1,8 @@
+<p align="center" widht="100%">
+<img src="./docu/blockchain_logo.jpeg" alt="logo image" style="width:30%;height:30%;">
+</p>
+<hr>
+
 # blockchain
 This project contains a straight-forward blockchain implementation using flask as UI
 to operate with the Blockchain.
@@ -46,8 +51,12 @@ in your blockchain.
 `127.0.0.1:5000/chain`
 
 # Understanding a blockchain
-A blockchain is a sequential chain of records called blocks.
-The blocks can contain transactions, files, or any other data.
-These blocks are chained together using hashes.
+A blockchain is a sequential chain of records called blocks. <br>
+The blocks can contain transactions, files, or any other data. <br>
+These blocks are chained together using hashes. <br>
 
+<hr>
 
+<p align="center" widht="100%">
+<img src="./docu/blockchain_logo.jpeg" alt="logo image" style="width:30%;height:30%;">
+</p>

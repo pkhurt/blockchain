@@ -6,9 +6,11 @@ from time import time
 
 class Blockchain(object):
     """
-    Class Blockchain
-
-    Constructor: Creates an empty list
+    This class is responsible for managing the blockchain by storing transactions and the functions to create new blocks.
+    Constructor: 
+        Creates two empty lists 
+         1: to store our blockchain
+         2: to store the transactions
 
     Block: Each Block has:
       - index
