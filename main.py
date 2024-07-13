@@ -53,19 +53,13 @@ def mine():
 def new_transaction_post():
     sender = request.form["sender"]
     receiver = request.form["receiver"]
-    amount = request.form["amount"]
-    # values = request.get_json()
-
-    # check required fields that are POST to this function
-    # required = ["sender", "recipient", "amount"]
-    # if not all(elem in values for elem in required):
-    #     return "Missing values", 400
+    amount = int(request.form["amount"])
 
     # New transaction is created
     index = blockchain.new_transaction(
-        request.form["sender"],
-        request.form["recipient"],
-        request.form["amount"])
+        sender,
+        receiver,
+        amount)
 
     response = {"message": f"Transaction will be added to Block {index}"}
     return jsonify(response), 201
