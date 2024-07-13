@@ -7,8 +7,8 @@ from blockchain import Blockchain
 class TestBlockchainMethods(unittest.TestCase):
     def setUp(self):
         self.blockchain = Blockchain()
-        self.sender = "Santa Carlos"
-        self.recipient = "Fernando"
+        self.sender = "Petro"
+        self.recipient = "Klaus"
         self.amount = 3
 
         self.proof = 100
@@ -23,10 +23,18 @@ class TestBlockchainMethods(unittest.TestCase):
 
     def test_new_transaction_return_type(self):
         """
-        return type of a transaction must be integer
+        return type of a transaction must be the index as integer
         """
         transaction = self.blockchain.new_transaction(self.sender, self.recipient, self.amount)
         self.assertIsInstance(transaction, int)
+
+    # def test_new_transaction_must_return_the_index_added_by_one(self):
+    #     """
+    #     A new transaction means that the number of the current transactions needs to be added by one
+    #     """
+    #     previous_index = self.blockchain["index"]
+    #     transaction = self.blockchain.new_transaction(self.sender, self.recipient, self.amount)
+    #     self.assertEqual(previous_index + 1, transaction)
 
     def test_new_transaction_properties_current_transactions(self):
         """

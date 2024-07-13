@@ -66,8 +66,7 @@ class Blockchain(object):
             "recipient": recipient,
             "amount": amount,
         })
-        self.last_block["index"] += 1
-        return self.last_block["index"]
+        return self.last_block["index"] + 1
 
     def proof_of_work(self, last_proof):
         """

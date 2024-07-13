@@ -30,7 +30,7 @@ def mine():
 
     # We receive one coin when mined a new block
     blockchain.new_transaction(
-        sender="0",
+        sender="<<THE_BLOCKCHAIN_SYSTEM>>",
         recipient=node_identifier,
         amount=1,
     )
