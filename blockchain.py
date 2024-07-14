@@ -68,11 +68,15 @@ class Blockchain(object):
         })
         return self.last_block["index"] + 1
 
-    def proof_of_work(self, last_proof):
+    def proof_of_work(self, last_proof: int) -> str:
         """
-
-        :param last_proof:
-        :return:
+        Takes the last_proof of the last block and returns the proof of the current block
+        by running a proof of work algorithm. The proof of work algorithm will be solved
+        in the valid_proof method. 
+        General concept: The proof is a number that is difficult to find but easy to verify.
+        
+        :param last_proof: <int> Previous Proof of the previous block
+        :return: <int> Current Proof of the current block
         """
         proof = 0
         while self.valid_proof(last_proof, proof) is False:
