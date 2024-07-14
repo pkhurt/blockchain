@@ -3,6 +3,14 @@
 </p>
 <hr>
 
+# Set up
+Use the virtual environment to set up the needed python packages.
+```
+python3 -m venv .venv
+source .venv/bin/activate
+pip3 install -r requirements.txt
+```
+
 # blockchain
 This project contains a straight-forward blockchain implementation using flask as UI
 to operate with the Blockchain.
@@ -81,8 +89,15 @@ block = {
 ### Transactions
 A transaction is, as the name indicates a movement of value between a sender and a receiver.
 
-### Proof of Work (PoW)
+Transactions will be <i>mined</i> into a block within the blockchain. <br>
+This means also, that a transaction is not certified as long as the block in a blockchain is not forged! When a transaction is first made and no block exists, the transaction will be added to the so-called <b>mempool</b>. There it will wait until it's been picked up by a new mined block.
+
+Since the hash256 is unique and based on all previous blocks it's not possible to change or delete the transaction afterwards.
+
+### Mining / Proof of Work (PoW)
 Blocks are created / mined using a proof of work algorithm. The main goal of a PoW is to find a number that solves a certain problem. The number should be difficult to find but very easy to verify by anyone in the blockchain network. 
+
+If a new block is found, the miner will be payed with 1 new bitcoin.
 
 #### Example
 Let's assume that we look for a result of that <i>hash(x / y)</i> must end with 0. Something like this
@@ -94,6 +109,13 @@ For this task we set `x = 5`.
 Now we iterate so long over `y` until we found a result hash that ends wit 0.
 
 In Bitcoin this is called <b>hashcash algorithm</b>.
+
+## Anonymity
+Transactions can be fulfilled anonomously. This is done by user-adresses in the bitcoin network that don't contain any personal information.
+
+## Limited amount of bitcoins
+The overall amount of bitcoins is limited to 21 million. Around the year 2140 will be the last bitcoin mined. 
+At this time the miners can not be paid with new bitcoins anymore, then all the users that have a transaction at this block will pay a certain amount to the miner.
 
 <hr>
 
