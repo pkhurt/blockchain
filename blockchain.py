@@ -29,8 +29,8 @@ class Blockchain(object):
     def register_node(self, address: str = "Address of node") -> None:
         """
         Add a new node to the list of nodes
-        :param address:
-        :return:
+        :param address: <str> Address of node. Eg. 'http://
+        :return: None
         """
         parsed_url = urlparse(address)
         self.nodes.add(parsed_url.netloc)
@@ -38,6 +38,8 @@ class Blockchain(object):
     def new_block(self, proof: int, previous_hash: int = None):
         """
         Creates a new block and adds it to the chain
+        :param proof: <int> The proof given by the proof of work algorithm
+        :param previous_hash: (Optional) <int> Hash of the previous block
         """
         block = {
             "index": len(self.chain) + 1,
