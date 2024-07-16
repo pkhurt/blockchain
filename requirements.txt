@@ -1,2 +1,4 @@
 Flask
 uuid
+Django
+psycopg2
